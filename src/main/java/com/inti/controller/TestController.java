@@ -45,7 +45,7 @@ public class TestController {
 	}
 	
 	@PutMapping("tests/{idtest}")
-	public Test updateTest(@PathVariable("idtest")Long idTest, Test test) {
+	public Test updateTest(@PathVariable("idtest")Long idTest, @RequestBody Test test) {
 		Test objtest = testService.findOne(idTest);
 		objtest.setNiveau(test.getNiveau());
 		objtest.setResultats(test.getResultats());

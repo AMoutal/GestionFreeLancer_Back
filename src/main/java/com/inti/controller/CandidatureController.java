@@ -49,7 +49,6 @@ public class CandidatureController {
 		public Candidature updateCandidature(@PathVariable("idC") Long idCandidature,@RequestBody Candidature canditature) {
 			Candidature currentCanditature = canditatureService.findOne(idCandidature);
 			currentCanditature.setLettreMotivation(canditature.getLettreMotivation());
-
 			currentCanditature.setFreelancer(canditature.getFreelancer());
 			currentCanditature.setProjet(canditature.getProjet());
 			
