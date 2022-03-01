@@ -16,6 +16,7 @@ import com.inti.service.interfaces.IProjetService;
 
 @RestController 
 public class ProjetController {
+	
 	@Autowired
 	IProjetService projetService;
 
