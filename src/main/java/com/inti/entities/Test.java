@@ -1,11 +1,15 @@
 package com.inti.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Test {
@@ -15,9 +19,8 @@ public class Test {
 	private Long idTest;
 	private String type;
 	private String niveau;
-	@ManyToOne
-	@JoinColumn(name = "id_resultat")
-	private Resultat resultat;
+	@OneToMany(mappedBy = "test")
+	private List<Resultat> resultats = new ArrayList<Resultat>();
 	
 	public Test() {
 	}
@@ -27,10 +30,11 @@ public class Test {
 		this.niveau = niveau;
 	}
 
-	public Test(String type, String niveau, Resultat resultat) {
+	public Test(String type, String niveau, List<Resultat> resultats) {
+		super();
 		this.type = type;
 		this.niveau = niveau;
-		this.resultat = resultat;
+		this.resultats = resultats;
 	}
 
 	public Long getIdTest() {
@@ -57,12 +61,12 @@ public class Test {
 		this.niveau = niveau;
 	}
 
-	public Resultat getResultat() {
-		return resultat;
+	public List<Resultat> getResultats() {
+		return resultats;
 	}
 
-	public void setResultat(Resultat resultat) {
-		this.resultat = resultat;
+	public void setResultats(List<Resultat> resultats) {
+		this.resultats = resultats;
 	}
 
 	@Override

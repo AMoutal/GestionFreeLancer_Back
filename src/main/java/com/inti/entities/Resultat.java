@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,10 +18,12 @@ public class Resultat {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idResultat;
 	private int score;
-	@OneToMany(mappedBy = "resultat")
-	private List<Test> tests = new ArrayList<Test>();
-	@OneToMany(mappedBy = "resultat")
-	private List<Freelancer> freelancers = new ArrayList<Freelancer>();
+	@ManyToOne
+	@JoinColumn (name = "id_test")
+	private Test test;
+	@ManyToOne
+	@JoinColumn(name = "id_freelancer")
+	private Freelancer freelancer;
 	
 	public Resultat() {
 	}
@@ -28,10 +32,12 @@ public class Resultat {
 		this.score = score;
 	}
 
-	public Resultat(int score, List<Test> tests, List<Freelancer> freelancers) {
+	public Resultat(Long idResultat, int score, Test test, Freelancer freelancer) {
+		super();
+		this.idResultat = idResultat;
 		this.score = score;
-		this.tests = tests;
-		this.freelancers = freelancers;
+		this.test = test;
+		this.freelancer = freelancer;
 	}
 
 	public Long getIdResultat() {
@@ -50,20 +56,20 @@ public class Resultat {
 		this.score = score;
 	}
 
-	public List<Test> getTests() {
-		return tests;
+	public Test getTest() {
+		return test;
 	}
 
-	public void setTests(List<Test> tests) {
-		this.tests = tests;
+	public void setTest(Test test) {
+		this.test = test;
 	}
 
-	public List<Freelancer> getFreelancers() {
-		return freelancers;
+	public Freelancer getFreelancer() {
+		return freelancer;
 	}
 
-	public void setFreelancers(List<Freelancer> freelancers) {
-		this.freelancers = freelancers;
+	public void setFreelancer(Freelancer freelancer) {
+		this.freelancer = freelancer;
 	}
 
 	@Override

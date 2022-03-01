@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -20,10 +22,12 @@ public class EvaluationCandidat implements Serializable{
 	private int score;
 	private boolean bilan;
 	private String commentaire;
-	@OneToMany(mappedBy = "evaluationCandidat")
-	private List<Freelancer> freelancers = new ArrayList<Freelancer>();
-	@OneToMany(mappedBy = "evaluationCandidat")
-	private List<JobOwner> jobowners = new ArrayList<JobOwner>();
+	@ManyToOne
+	@JoinColumn(name = "id_freelancer")
+	private Freelancer freelancer;
+	@ManyToOne
+	@JoinColumn(name = "id_jobOwner")
+	private JobOwner jobOwner;
 	
 	public EvaluationCandidat() {
 	}
@@ -34,13 +38,13 @@ public class EvaluationCandidat implements Serializable{
 		this.commentaire = commentaire;
 	}
 
-	public EvaluationCandidat(int score, boolean bilan, String commentaire, List<Freelancer> freelancers,
-			List<JobOwner> jobowners) {
+	public EvaluationCandidat(int score, boolean bilan, String commentaire, Freelancer freelancer, JobOwner jobOwner) {
+		super();
 		this.score = score;
 		this.bilan = bilan;
 		this.commentaire = commentaire;
-		this.freelancers = freelancers;
-		this.jobowners = jobowners;
+		this.freelancer = freelancer;
+		this.jobOwner = jobOwner;
 	}
 
 	public Long getIdEvaluationCandidat() {
@@ -75,20 +79,20 @@ public class EvaluationCandidat implements Serializable{
 		this.commentaire = commentaire;
 	}
 
-	public List<Freelancer> getFreelancers() {
-		return freelancers;
+	public Freelancer getFreelancer() {
+		return freelancer;
 	}
 
-	public void setFreelancers(List<Freelancer> freelancers) {
-		this.freelancers = freelancers;
+	public void setFreelancer(Freelancer freelancer) {
+		this.freelancer = freelancer;
 	}
 
-	public List<JobOwner> getJobowners() {
-		return jobowners;
+	public JobOwner getJobOwner() {
+		return jobOwner;
 	}
 
-	public void setJobowners(List<JobOwner> jobowners) {
-		this.jobowners = jobowners;
+	public void setJobOwner(JobOwner jobOwner) {
+		this.jobOwner = jobOwner;
 	}
 
 	@Override
