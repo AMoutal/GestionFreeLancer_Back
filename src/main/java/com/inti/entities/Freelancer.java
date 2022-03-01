@@ -1,8 +1,5 @@
 package com.inti.entities;
 
-
-public class Freelancer {
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;

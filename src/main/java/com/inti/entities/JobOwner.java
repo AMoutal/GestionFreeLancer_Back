@@ -1,8 +1,5 @@
 package com.inti.entities;
 
-
-public class JobOwner {
-
 import java.util.HashSet;
 import java.util.Set;
 
