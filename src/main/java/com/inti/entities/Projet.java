@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,11 +37,11 @@ public class Projet
 	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
 	private Set<Freelancer> liste_freelancer = new HashSet<>();
 	
-	@OneToMany(mappedBy = "candidature", cascade = CascadeType.ALL)
-	private Set<Freelancer> liste_candidature = new HashSet<>();
+	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+	private Set<Candidature> liste_candidature = new HashSet<>();
 	
 	@ManyToOne
-	JobOwner jobowner;
+	JobOwner jobOwner;
 
 	public Long getIdProjet() {
 		return idProjet;
@@ -106,22 +107,23 @@ public class Projet
 		this.liste_freelancer = liste_freelancer;
 	}
 
-	public Set<Freelancer> getListe_candidature() {
+	public Set<Candidature> getListe_candidature() {
 		return liste_candidature;
 	}
 
-	public void setListe_candidature(Set<Freelancer> liste_candidature) {
+	public void setListe_candidature(Set<Candidature> liste_candidature) {
 		this.liste_candidature = liste_candidature;
 	}
 
-	public JobOwner getJobowner() {
-		return jobowner;
+	public JobOwner getJobOwner() {
+		return jobOwner;
 	}
 
-	public void setJobowner(JobOwner jobowner) {
-		this.jobowner = jobowner;
+	public void setJobOwner(JobOwner jobOwner) {
+		this.jobOwner = jobOwner;
 	}
 	
+
 	
 
 }

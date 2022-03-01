@@ -1,5 +1,10 @@
 package com.inti.entities;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d7e47919113889015bc0da206113198e4621b1ee
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,10 +25,10 @@ public class JobOwner extends Utilisateur
 	@ManyToOne
 	private Entreprise entreprise;
 	
-	@OneToMany(mappedBy = "jobowner", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "jobOwner", cascade = CascadeType.ALL)
 	private Set<Projet> liste_projet = new HashSet<>();
 	
-	@OneToMany(mappedBy = "jobowner", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "jobOwner", cascade = CascadeType.ALL)
 	private Set<EvaluationCandidat> liste_evaluation = new HashSet<>();
 	
 	public String getDepartement() 

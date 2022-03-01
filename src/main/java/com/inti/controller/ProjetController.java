@@ -52,7 +52,7 @@ public class ProjetController {
 		currentProjet.setEtat(projet.isEtat());
 		currentProjet.setListe_freelancer(projet.getListe_freelancer());
 		currentProjet.setListe_candidature(projet.getListe_candidature());
-		currentProjet.setJobowner(projet.getJobowner());
+		currentProjet.setJobOwner(projet.getJobOwner());
 		
 		
 		return projetService.save(currentProjet);

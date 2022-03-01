@@ -1,9 +1,15 @@
 package com.inti.entities;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d7e47919113889015bc0da206113198e4621b1ee
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -11,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity 
@@ -23,13 +30,22 @@ public class Freelancer extends Utilisateur implements Serializable{
 	private byte[] cv;
 	
 	@OneToMany(mappedBy="freelancer")
-	List <Resultat> resultats = new ArrayList<>();
+	private Set<Resultat> resultats = new HashSet<>();
+	
+	@OneToMany(mappedBy="freelancer")
+	private Set<EvaluationCandidat> evaluationCandidats = new HashSet<>();
+	
+	@OneToMany(mappedBy="freelancer")
+	private Set<EvaluationEntreprise> evaluationEntreprises = new HashSet<>();
+	
+	@ManyToOne
+	private Projet projet;
 
 	public Freelancer() {
 		super();
 	}
 
-	public Freelancer(String metier, boolean disponible, byte[] cv, List<Resultat> resultats) {
+	public Freelancer(String metier, boolean disponible, byte[] cv, Set<Resultat> resultats) {
 		super();
 		this.metier = metier;
 		this.disponible = disponible;
@@ -61,12 +77,38 @@ public class Freelancer extends Utilisateur implements Serializable{
 		this.cv = cv;
 	}
 
-	public List<Resultat> getResultats() {
+	public Set<Resultat> getResultats() {
 		return resultats;
 	}
 
-	public void setResultats(List<Resultat> resultats) {
+	public void setResultats(Set<Resultat> resultats) {
 		this.resultats = resultats;
+	}
+	
+	
+
+	public Set<EvaluationCandidat> getEvaluationCandidats() {
+		return evaluationCandidats;
+	}
+
+	public void setEvaluationCandidats(Set<EvaluationCandidat> evaluationCandidats) {
+		this.evaluationCandidats = evaluationCandidats;
+	}
+
+	public Set<EvaluationEntreprise> getEvaluationEntreprises() {
+		return evaluationEntreprises;
+	}
+
+	public void setEvaluationEntreprises(Set<EvaluationEntreprise> evaluationEntreprises) {
+		this.evaluationEntreprises = evaluationEntreprises;
+	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
 	}
 
 	@Override
@@ -74,6 +116,7 @@ public class Freelancer extends Utilisateur implements Serializable{
 		return "Freelancer [metier=" + metier + ", disponible=" + disponible + ", cv=" + Arrays.toString(cv)
 				+ ", toString()=" + super.toString() + "]";
 	}
+
 
 
 }
