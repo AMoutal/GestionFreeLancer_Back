@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 @DiscriminatorValue(value = "jobowner")
 public class JobOwner extends Utilisateur
@@ -18,6 +21,7 @@ public class JobOwner extends Utilisateur
 	private String departement;
 	private String metier;
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	private Entreprise entreprise;
 	

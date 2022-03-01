@@ -17,6 +17,9 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity 
 @DiscriminatorValue(value = "freelancer")
 public class Freelancer extends Utilisateur implements Serializable{
@@ -35,6 +38,7 @@ public class Freelancer extends Utilisateur implements Serializable{
 	@OneToMany(mappedBy="freelancer")
 	private Set<EvaluationEntreprise> evaluationEntreprises = new HashSet<>();
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	private Projet projet;
 

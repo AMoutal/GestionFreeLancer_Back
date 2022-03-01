@@ -15,6 +15,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Projet 
 {
@@ -39,7 +43,8 @@ public class Projet
 	
 	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
 	private Set<Candidature> liste_candidature = new HashSet<>();
-	
+
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	JobOwner jobOwner;
 

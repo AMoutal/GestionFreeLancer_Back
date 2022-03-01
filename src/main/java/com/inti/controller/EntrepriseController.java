@@ -40,7 +40,7 @@ public class EntrepriseController {
 		entrepriseService.delete(idEntreprise);
 	}
 	
-	@PutMapping("entrprise/{idE}")
+	@PutMapping("entreprise/{idE}")
 	public Entreprise updateJobOwner(@PathVariable("idE") Long idEntreprise, @RequestBody Entreprise entreprise) {
 		Entreprise currentEntreprise = entrepriseService.findOne(idEntreprise);
 		

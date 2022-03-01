@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 
 @Entity
 public class EvaluationCandidat implements Serializable{
@@ -22,9 +25,11 @@ public class EvaluationCandidat implements Serializable{
 	private int score;
 	private boolean bilan;
 	private String commentaire;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	@JoinColumn(name = "id_freelancer")
 	private Freelancer freelancer;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	@JoinColumn(name = "id_jobOwner")
 	private JobOwner jobOwner;

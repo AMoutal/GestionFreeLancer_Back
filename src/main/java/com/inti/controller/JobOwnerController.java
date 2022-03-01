@@ -28,10 +28,10 @@ public class JobOwnerController {
 		return jobOwnerService.findAll();
 	}
 
-	@GetMapping("jobOwner/{idU}") 
-	public JobOwner findOne(@PathVariable("idJ") Long idJobOwner) 
+	@GetMapping("jobOwner/{idJ}") 
+	public JobOwner findOne(@PathVariable("idJ") Long idUser) 
 	{
-		return jobOwnerService.findOne(idJobOwner); 
+		return jobOwnerService.findOne(idUser); 
 	}
 
 	@PostMapping("jobOwner") 
@@ -41,13 +41,13 @@ public class JobOwnerController {
 	}
 
 	@DeleteMapping("jobOwner/{idJ}")
-	public void deleteJobOwner(@PathVariable("idJ") Long idJobOwner) {
-		jobOwnerService.delete(idJobOwner);
+	public void deleteJobOwner(@PathVariable("idJ") Long idUser) {
+		jobOwnerService.delete(idUser);
 	}
 	
 	@PutMapping("jobOwner/{idJ}")
-	public JobOwner updateJobOwner(@PathVariable("idJ") Long idJobOwner, @RequestBody JobOwner jobOwner) {
-		JobOwner currentJobOwner = jobOwnerService.findOne(idJobOwner);
+	public JobOwner updateJobOwner(@PathVariable("idJ") Long idUser, @RequestBody JobOwner jobOwner) {
+		JobOwner currentJobOwner = jobOwnerService.findOne(idUser);
 		
 		currentJobOwner.setNomUser(jobOwner.getNomUser());
 		currentJobOwner.setPrenomUser(jobOwner.getPrenomUser());

@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Resultat {
 
@@ -18,9 +21,11 @@ public class Resultat {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idResultat;
 	private int score;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	@JoinColumn (name = "id_test")
 	private Test test;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	@JoinColumn(name = "id_freelancer")
 	private Freelancer freelancer;

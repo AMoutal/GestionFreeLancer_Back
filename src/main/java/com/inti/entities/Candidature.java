@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Candidature {
 	@Id
@@ -15,8 +18,10 @@ public class Candidature {
 	private Long id;
 	private Date date;
 	private String lettreMotivation;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	private Freelancer freelancer;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToOne
 	private Projet projet;
 	
