@@ -1,7 +1,6 @@
 package com.inti.entities;
 
 
-
 import java.util.HashSet;
 import java.util.Set;
 

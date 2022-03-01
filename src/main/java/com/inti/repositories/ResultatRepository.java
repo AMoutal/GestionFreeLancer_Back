@@ -1,5 +1,10 @@
 package com.inti.repositories;
 
-public class ResultatRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.inti.entities.Resultat;
+
+@Repository
+public interface ResultatRepository extends JpaRepository<Resultat, Long>{
 
 }
