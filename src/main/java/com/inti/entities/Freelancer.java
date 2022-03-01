@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 @Entity 
+@DiscriminatorValue(value = "freelancer")
 public class Freelancer extends Utilisateur implements Serializable{
 	
 	private String metier;
