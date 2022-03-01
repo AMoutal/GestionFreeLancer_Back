@@ -45,7 +45,7 @@ public class EvaluationCandidatController {
 	}
 	
 	@PutMapping("evaluationCandidats/{idEC}")
-	public EvaluationCandidat updateEvaluationCandidat(@PathVariable("idEC")Long idEvaluationCandidat, EvaluationCandidat evaluationCandidat) {
+	public EvaluationCandidat updateEvaluationCandidat(@PathVariable("idEC")Long idEvaluationCandidat,@RequestBody EvaluationCandidat evaluationCandidat) {
 		EvaluationCandidat objEC = evaluationCandidatService.findOne(idEvaluationCandidat);
 		objEC.setBilan(evaluationCandidat.isBilan());
 		objEC.setCommentaire(evaluationCandidat.getCommentaire());

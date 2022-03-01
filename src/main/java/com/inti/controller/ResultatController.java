@@ -45,7 +45,7 @@ public class ResultatController {
 	}
 	
 	@PutMapping("resultats/{idresultat}")
-	public Resultat updateResultat(@PathVariable("idresultat")Long idResultat, Resultat resultat) {
+	public Resultat updateResultat(@PathVariable("idresultat")Long idResultat,@RequestBody Resultat resultat) {
 		Resultat objresultat = resultatService.findOne(idResultat);
 		objresultat.setFreelancer(resultat.getFreelancer());
 		objresultat.setScore(resultat.getScore());
