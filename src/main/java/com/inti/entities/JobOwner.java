@@ -1,5 +1,8 @@
 package com.inti.entities;
 
+
+public class JobOwner {
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -60,7 +63,6 @@ public class JobOwner extends Utilisateur
 	public void setListe_evaluation(Set<EvaluationCandidat> liste_evaluation) {
 		this.liste_evaluation = liste_evaluation;
 	}
-	
 	
 
 }

@@ -1,5 +1,8 @@
 package com.inti.entities;
 
+
+public class Freelancer {
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -74,7 +77,6 @@ public class Freelancer extends Utilisateur implements Serializable{
 		return "Freelancer [metier=" + metier + ", disponible=" + disponible + ", cv=" + Arrays.toString(cv)
 				+ ", toString()=" + super.toString() + "]";
 	}
-	
 
 
 }
