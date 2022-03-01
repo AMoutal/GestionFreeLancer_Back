@@ -77,4 +77,5 @@ public class Freelancer extends Utilisateur implements Serializable{
 	}
 
 
+
 }

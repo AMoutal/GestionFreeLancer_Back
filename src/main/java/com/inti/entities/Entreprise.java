@@ -1,5 +1,6 @@
 package com.inti.entities;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.inti.model.Adresse;
 
 @Entity
 public class Entreprise 
@@ -61,14 +64,15 @@ public class Entreprise
 		this.liste_jobowner = liste_jobowner;
 	}
 
-	public Set<JobOwner> getListe_evaluation() {
+	public Set<EvaluationEntreprise> getListe_evaluation() {
 		return liste_evaluation;
 	}
 
-	public void setListe_evaluation(Set<JobOwner> liste_evaluation) {
+	public void setListe_evaluation(Set<EvaluationEntreprise> liste_evaluation) {
 		this.liste_evaluation = liste_evaluation;
 	}
 	
 	
 	
+
 }
