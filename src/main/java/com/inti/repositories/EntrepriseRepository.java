@@ -4,10 +4,10 @@ package com.inti.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inti.entities.JobOwner;
+import com.inti.entities.Entreprise;
 
 @Repository
-public interface EntrepriseRepository extends JpaRepository<JobOwner, Long>
+public interface EntrepriseRepository extends JpaRepository<Entreprise, Long>
 {
 	
 }

@@ -5,37 +5,37 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inti.entities.JobOwner;
-import com.inti.repositories.JobOwnerRepository;
-import com.inti.service.interfaces.IJobOwnerService;
+import com.inti.entities.Projet;
+import com.inti.repositories.ProjetRepository;
+import com.inti.service.interfaces.IProjetService;
 
 @Service
-public class ProjetService implements IJobOwnerService
+public class ProjetService implements IProjetService
 {
 	@Autowired
-	JobOwnerRepository jobOwnerRepository;
+	ProjetRepository projetRepository;
 	
 	@Override
-	public List<JobOwner> findAll() 
+	public List<Projet> findAll() 
 	{
-		return jobOwnerRepository.findAll();
+		return projetRepository.findAll();
 	}
 
 	@Override
-	public JobOwner findOne(Long idJobOwner) 
+	public Projet findOne(Long idProjet) 
 	{
-		return jobOwnerRepository.findById(idJobOwner).get();
+		return projetRepository.findById(idProjet).get();
 	}
 
 	@Override
-	public JobOwner save(JobOwner jobOwner) 
+	public Projet save(Projet projet) 
 	{
-		return jobOwnerRepository.save(jobOwner);
+		return projetRepository.save(projet);
 	}
 
 	@Override
-	public void delete(Long idJobOwner) 
+	public void delete(Long idProjet) 
 	{
-		jobOwnerRepository.deleteById(idJobOwner);
+		projetRepository.deleteById(idProjet);
 	}	
 }
