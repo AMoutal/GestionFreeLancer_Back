@@ -39,18 +39,18 @@ public class EntrepriseController {
 	public void deleteEntreprise(@PathVariable("idE") Long idEntreprise) {
 		entrepriseService.delete(idEntreprise);
 	}
-	/*
-	@PutMapping("jobOwner/{idJ}")
-	public JobOwner updateJobOwner(@PathVariable("idJ") Long idJobOwner, @RequestBody JobOwner jobOwner) {
-		JobOwner currentUtilisateur = jobOwnerService.findOne(idJobOwner);
+	
+	@PutMapping("entrprise/{idE}")
+	public Entreprise updateJobOwner(@PathVariable("idE") Long idEntreprise, @RequestBody Entreprise entreprise) {
+		Entreprise currentEntreprise = entrepriseService.findOne(idEntreprise);
 		
-		currentUtilisateur.setNom(jobOwner.getNom());
-		currentUtilisateur.setPrenom(jobOwner.getPrenom());
-		currentUtilisateur.setUsername(user.getUsername());
-		currentUtilisateur.setPassword(user.getPassword());
+		currentEntreprise.setNom(entreprise.getNom());
+		currentEntreprise.setAdresse(entreprise.getAdresse());
+		currentEntreprise.setListe_evaluation(entreprise.getListe_evaluation());
+		currentEntreprise.setListe_jobowner(entreprise.getListe_jobowner());
 		
-		return userService.save(currentUtilisateur);
-	}*/
+		return entrepriseService.save(currentEntreprise);
+	}
 
 	
 

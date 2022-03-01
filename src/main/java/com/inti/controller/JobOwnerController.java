@@ -39,18 +39,26 @@ public class JobOwnerController {
 	public void deleteJobOwner(@PathVariable("idJ") Long idJobOwner) {
 		jobOwnerService.delete(idJobOwner);
 	}
-	/*
+	
 	@PutMapping("jobOwner/{idJ}")
 	public JobOwner updateJobOwner(@PathVariable("idJ") Long idJobOwner, @RequestBody JobOwner jobOwner) {
-		JobOwner currentUtilisateur = jobOwnerService.findOne(idJobOwner);
+		JobOwner currentJobOwner = jobOwnerService.findOne(idJobOwner);
 		
-		currentUtilisateur.setNom(jobOwner.getNom());
-		currentUtilisateur.setPrenom(jobOwner.getPrenom());
-		currentUtilisateur.setUsername(user.getUsername());
-		currentUtilisateur.setPassword(user.getPassword());
+		currentJobOwner.setNomUser(jobOwner.getNomUser());
+		currentJobOwner.setPrenomUser(jobOwner.getPrenomUser());
+		currentJobOwner.setUsername(jobOwner.getUsername());
+		currentJobOwner.setPassword(jobOwner.getPassword());
+		currentJobOwner.setEmailUser(jobOwner.getEmailUser());
+		currentJobOwner.setRoles(jobOwner.getRoles());
 		
-		return userService.save(currentUtilisateur);
-	}*/
+		currentJobOwner.setDepartement(jobOwner.getDepartement());
+		currentJobOwner.setMetier(jobOwner.getMetier());
+		currentJobOwner.setEntreprise(jobOwner.getEntreprise());
+		currentJobOwner.setListe_evaluation(jobOwner.getListe_evaluation());
+		currentJobOwner.setListe_projet(jobOwner.getListe_projet());
+		
+		return jobOwnerService.save(currentJobOwner);
+	}
 
 	
 

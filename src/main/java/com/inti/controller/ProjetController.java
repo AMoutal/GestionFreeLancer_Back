@@ -39,18 +39,24 @@ public class ProjetController {
 	public void deleteProjet(@PathVariable("idP") Long idProjet) {
 		projetService.delete(idProjet);
 	}
-	/*
-	@PutMapping("jobOwner/{idJ}")
-	public JobOwner updateJobOwner(@PathVariable("idJ") Long idJobOwner, @RequestBody JobOwner jobOwner) {
-		JobOwner currentUtilisateur = jobOwnerService.findOne(idJobOwner);
+	
+	@PutMapping("projet/{idP}")
+	public Projet updateProjet(@PathVariable("idP") Long idProjet, @RequestBody Projet projet) {
+		Projet currentProjet = projetService.findOne(idProjet);
 		
-		currentUtilisateur.setNom(jobOwner.getNom());
-		currentUtilisateur.setPrenom(jobOwner.getPrenom());
-		currentUtilisateur.setUsername(user.getUsername());
-		currentUtilisateur.setPassword(user.getPassword());
+		currentProjet.setNom(projet.getNom());
+		currentProjet.setRenumeration(projet.getRenumeration());
+		currentProjet.setDescription(projet.getDescription());
+		currentProjet.setDateDebut(projet.getDateDebut());
+		currentProjet.setDateFin(projet.getDateFin());
+		currentProjet.setEtat(projet.isEtat());
+		currentProjet.setListe_freelancer(projet.getListe_freelancer());
+		currentProjet.setListe_candidature(projet.getListe_candidature());
+		currentProjet.setJobowner(projet.getJobowner());
 		
-		return userService.save(currentUtilisateur);
-	}*/
+		
+		return projetService.save(currentProjet);
+	}
 
 	
 

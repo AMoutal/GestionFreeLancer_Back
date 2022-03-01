@@ -4,11 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
+@DiscriminatorValue(value = "jobowner")
 public class JobOwner extends Utilisateur
 {
 	
