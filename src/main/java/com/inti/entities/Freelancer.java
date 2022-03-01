@@ -1,9 +1,6 @@
 package com.inti.entities;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d7e47919113889015bc0da206113198e4621b1ee
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;

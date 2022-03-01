@@ -1,10 +1,6 @@
 package com.inti.entities;
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> d7e47919113889015bc0da206113198e4621b1ee
 import java.util.HashSet;
 import java.util.Set;
 
