@@ -30,7 +30,7 @@ public class ProjetController {
 		return projetService.findOne(idProjet); 
 	}
 
-	@PostMapping("jobOwner") 
+	@PostMapping("projet") 
 	public Projet saveProjet(@RequestBody Projet projet) {
 		return projetService.save(projet);
 	}
