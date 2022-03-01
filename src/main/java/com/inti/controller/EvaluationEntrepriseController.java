@@ -52,8 +52,8 @@ public class EvaluationEntrepriseController {
 			
 			EvaluationEntreprise currentEvaluationEntreprise = evaluationEntrepriseService.findOne(idEvaluationEntreprise);
 			
-			currentEvaluationEntreprise.setCommentaire(null);
-			currentEvaluationEntreprise.setScore(0);
+			currentEvaluationEntreprise.setCommentaire(evaluationEntreprise.getCommentaire());
+			currentEvaluationEntreprise.setScore(evaluationEntreprise.getScore());
 			
 			
 			return evaluationEntrepriseService.save(currentEvaluationEntreprise);
