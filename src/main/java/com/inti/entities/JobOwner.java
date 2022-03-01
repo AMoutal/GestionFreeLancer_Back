@@ -22,10 +22,10 @@ public class JobOwner extends Utilisateur
 	@ManyToOne
 	private Entreprise entreprise;
 	
-	@OneToMany(mappedBy = "jobowner", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "jobOwner", cascade = CascadeType.ALL)
 	private Set<Projet> liste_projet = new HashSet<>();
 	
-	@OneToMany(mappedBy = "jobowner", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "jobOwner", cascade = CascadeType.ALL)
 	private Set<EvaluationCandidat> liste_evaluation = new HashSet<>();
 	
 	public String getDepartement() 

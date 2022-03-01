@@ -25,10 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AppUserDetailsService appUserDetailsService;
 	@Autowired
-	private BCryptPasswordEncoder baBCryptPasswordEncoder;
+	private BCryptPasswordEncoder bBCryptPasswordEncoder;
 
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(appUserDetailsService).passwordEncoder(baBCryptPasswordEncoder);
+		auth.userDetailsService(appUserDetailsService).passwordEncoder(bBCryptPasswordEncoder);
 	}
 
 	protected void configure(HttpSecurity http) throws Exception {
