@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,9 @@ import com.inti.service.interfaces.IJobOwnerService;
 public class JobOwnerController {
 	@Autowired
 	IJobOwnerService jobOwnerService;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@GetMapping("jobOwner") 
 	public List<JobOwner> findAll() {
@@ -32,6 +36,7 @@ public class JobOwnerController {
 
 	@PostMapping("jobOwner") 
 	public JobOwner saveJobOwner(@RequestBody JobOwner jobOwner) {
+		jobOwner.setPassword(passwordEncoder.encode(jobOwner.getPassword()));
 		return jobOwnerService.save(jobOwner);
 	}
 
@@ -47,7 +52,7 @@ public class JobOwnerController {
 		currentJobOwner.setNomUser(jobOwner.getNomUser());
 		currentJobOwner.setPrenomUser(jobOwner.getPrenomUser());
 		currentJobOwner.setUsername(jobOwner.getUsername());
-		currentJobOwner.setPassword(jobOwner.getPassword());
+		currentJobOwner.setPassword(passwordEncoder.encode(jobOwner.getPassword()));
 		currentJobOwner.setEmailUser(jobOwner.getEmailUser());
 		currentJobOwner.setRoles(jobOwner.getRoles());
 		

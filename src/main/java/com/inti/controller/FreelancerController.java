@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,9 @@ public class FreelancerController {
 	@Autowired 
 	IFreelancerService freelancerService;
 	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
 	@RequestMapping(value="freelancers", method=RequestMethod.GET)
 	public List<Freelancer> findAll(){
 		return freelancerService.findAll();
@@ -36,6 +40,7 @@ public class FreelancerController {
 
 	@PostMapping("freelancers") 
 	public Freelancer saveFreelancer(@RequestBody Freelancer freelancer) {
+		freelancer.setPassword(passwordEncoder.encode(freelancer.getPassword()));
 		return freelancerService.save(freelancer);
 	}
 	
@@ -54,7 +59,7 @@ public class FreelancerController {
 		currentFreelancer.setNomUser(freelancer.getNomUser());
 		currentFreelancer.setPrenomUser(freelancer.getPrenomUser());
 		currentFreelancer.setUsername(freelancer.getUsername());
-		currentFreelancer.setPassword(freelancer.getPassword());
+		currentFreelancer.setPassword(passwordEncoder.encode(freelancer.getPassword()));
 		currentFreelancer.setEmailUser(freelancer.getEmailUser());
 		currentFreelancer.setRoles(freelancer.getRoles());
 		return freelancerService.save(currentFreelancer);

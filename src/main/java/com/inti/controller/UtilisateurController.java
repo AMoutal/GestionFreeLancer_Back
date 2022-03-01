@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,9 @@ public class UtilisateurController {
 	@Autowired 
 	IUtilisateurService utilisateurService;
 	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
 	@RequestMapping(value="users", method=RequestMethod.GET)
 	public List<Utilisateur> findAll(){
 		return utilisateurService.findAll();
@@ -36,6 +40,7 @@ public class UtilisateurController {
 
 	@PostMapping("users") 
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return utilisateurService.save(user);
 	}
 	
@@ -50,7 +55,7 @@ public class UtilisateurController {
 		currentUtilisateur.setNomUser(user.getNomUser());
 		currentUtilisateur.setPrenomUser(user.getPrenomUser());
 		currentUtilisateur.setUsername(user.getUsername());
-		currentUtilisateur.setPassword(user.getPassword());
+		currentUtilisateur.setPassword(passwordEncoder.encode(user.getPassword()));
 		currentUtilisateur.setEmailUser(user.getEmailUser());
 		currentUtilisateur.setRoles(user.getRoles());
 		return utilisateurService.save(currentUtilisateur);
