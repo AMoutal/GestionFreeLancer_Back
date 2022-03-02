@@ -26,7 +26,7 @@ public class EvaluationEntrepriseController {
 		@Autowired 
 		IEvaluationEntrepriseService evaluationEntrepriseService;
 		
-		@RequestMapping(value="evaluationEntreprises", method=RequestMethod.GET)
+		@RequestMapping(value="evaluationEntreprise", method=RequestMethod.GET)
 		public List<EvaluationEntreprise> findAll(){
 			return evaluationEntrepriseService.findAll();
 		}
