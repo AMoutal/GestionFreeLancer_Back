@@ -10,5 +10,5 @@ public interface IFreelancerService {
 	Freelancer findOne(Long idFreelancer);
 	Freelancer save(Freelancer freelancer);
 	void delete(Long idFreelancer);
-	
+	Freelancer findByUsername(String username);
 }

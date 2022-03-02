@@ -9,6 +9,6 @@ import com.inti.entities.JobOwner;
 @Repository
 public interface JobOwnerRepository extends JpaRepository<JobOwner, Long>
 {
-	
+	JobOwner findByUsername(String username);
 }
 

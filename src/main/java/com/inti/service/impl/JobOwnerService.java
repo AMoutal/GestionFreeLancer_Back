@@ -37,5 +37,10 @@ public class JobOwnerService implements IJobOwnerService
 	public void delete(Long idJobOwner) 
 	{
 		jobOwnerRepository.deleteById(idJobOwner);
-	}	
+	}
+	
+	@Override
+	public JobOwner findByUsername(String username) {
+		return jobOwnerRepository.findByUsername(username);
+	}
 }

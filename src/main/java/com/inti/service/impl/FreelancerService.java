@@ -34,5 +34,10 @@ public class FreelancerService implements IFreelancerService{
 	public void delete(Long idFreelancer) {
 		freelancerRepository.deleteById(idFreelancer);
 	}
+	
+	@Override
+	public Freelancer findByUsername(String username) {
+		return freelancerRepository.findByUsername(username);
+	}
 
 }

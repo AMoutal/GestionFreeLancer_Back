@@ -11,4 +11,5 @@ public interface IJobOwnerService
 	JobOwner findOne(Long idJobOwner);
 	JobOwner save(JobOwner jobOwner);
 	void delete(Long idJobOwner);
+	JobOwner findByUsername(String username);
 }
