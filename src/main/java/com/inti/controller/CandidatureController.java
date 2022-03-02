@@ -24,7 +24,7 @@ public class CandidatureController {
 		@Autowired 
 		ICanditatureService canditatureService;
 		
-		@RequestMapping(value="candidatures", method=RequestMethod.GET)
+		@RequestMapping(value="candidature", method=RequestMethod.GET)
 		public List<Candidature> findAll(){
 			return canditatureService.findAll();
 		}
