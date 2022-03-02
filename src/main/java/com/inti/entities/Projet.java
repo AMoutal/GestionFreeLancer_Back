@@ -27,7 +27,7 @@ public class Projet
 	private Long idProjet;
 	
 	private String nom;
-	private double renumeration;
+	private double remuneration;
 	private String description;
 	
 	@Temporal(TemporalType.DATE)
@@ -64,12 +64,12 @@ public class Projet
 		this.nom = nom;
 	}
 
-	public double getRenumeration() {
-		return renumeration;
+	public double getRemuneration() {
+		return remuneration;
 	}
 
-	public void setRenumeration(double renumeration) {
-		this.renumeration = renumeration;
+	public void setRemuneration(double remuneration) {
+		this.remuneration = remuneration;
 	}
 
 	public String getDescription() {

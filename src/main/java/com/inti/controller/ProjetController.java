@@ -46,7 +46,7 @@ public class ProjetController {
 		Projet currentProjet = projetService.findOne(idProjet);
 		
 		currentProjet.setNom(projet.getNom());
-		currentProjet.setRenumeration(projet.getRenumeration());
+		currentProjet.setRemuneration(projet.getRemuneration());
 		currentProjet.setDescription(projet.getDescription());
 		currentProjet.setDateDebut(projet.getDateDebut());
 		currentProjet.setDateFin(projet.getDateFin());
