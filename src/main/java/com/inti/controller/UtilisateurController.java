@@ -35,6 +35,7 @@ public class UtilisateurController {
 	
 	@GetMapping("users/{idU}") 
 	public Utilisateur findOne(@PathVariable("idU")Long idUser) { 
+	System.out.println(idUser);
 		return utilisateurService.findOne(idUser); 
 	}
 
