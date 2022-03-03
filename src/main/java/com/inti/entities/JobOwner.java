@@ -10,8 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @DiscriminatorValue(value = "jobowner")
@@ -21,7 +25,9 @@ public class JobOwner extends Utilisateur
 	private String departement;
 	private String metier;
 	
-	@JsonProperty(access = Access.WRITE_ONLY)
+	//@JsonProperty(access = Access.WRITE_ONLY)
+	
+	@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 	@ManyToOne
 	private Entreprise entreprise;
 	
