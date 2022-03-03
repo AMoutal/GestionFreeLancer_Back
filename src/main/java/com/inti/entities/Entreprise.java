@@ -12,9 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.inti.model.Adresse;
 
 @Entity
@@ -29,7 +28,9 @@ public class Entreprise
 	@Embedded
 	private Adresse adresse;
 	
-	@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
+	private String email;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@OneToMany(mappedBy = "entreprise", cascade = CascadeType.ALL)
 	private Set<JobOwner> liste_jobowner = new HashSet<>();
 	
@@ -74,6 +75,14 @@ public class Entreprise
 
 	public void setListe_evaluation(Set<EvaluationEntreprise> liste_evaluation) {
 		this.liste_evaluation = liste_evaluation;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

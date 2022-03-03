@@ -46,9 +46,9 @@ public class EntrepriseController {
 		
 		currentEntreprise.setNom(entreprise.getNom());
 		currentEntreprise.setAdresse(entreprise.getAdresse());
-		currentEntreprise.setListe_evaluation(entreprise.getListe_evaluation());
-		currentEntreprise.setListe_jobowner(entreprise.getListe_jobowner());
+		currentEntreprise.setEmail(entreprise.getEmail());
 		
+		System.out.println(currentEntreprise.getEmail());
 		return entrepriseService.save(currentEntreprise);
 	}
 
